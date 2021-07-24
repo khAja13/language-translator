@@ -30,7 +30,8 @@ var settings = {
     "method": "POST",
     "headers": {
         "x-rapidapi-host": "google-translate1.p.rapidapi.com",
-        "x-rapidapi-key": "6d6c201d92mshcde905c3091c36dp176388jsneabb3a4ca8f9",
+        // the key will be provided by rapidapi
+        "x-rapidapi-key": "c2ac343d3emsh818b4617d1b2f55p12605bjsn1a507cb54e75",
         "content-type": "application/x-www-form-urlencoded"
     },
     "data": {
