@@ -1,17 +1,3 @@
-// function myFunction(x) {
-//     if (x.matches) { 
-//         document.body.innerText = "This webiste works better on bigger screens."
-//         document.body.className = "mob"
-//     } else{
-//         document.body.style.backgroundColor = "#DDDDDD"
-//         document.body.className = ""
-//     }
-// }
-
-// var x = window.matchMedia("(max-width: 993px)")
-// myFunction(x) // Call listener function at run time
-// x.addListener(myFunction)
-
 const btn = document.getElementById('tra')
 const textFrom = document.getElementById('textFrom')
 let forSrc = false, forDest = false
