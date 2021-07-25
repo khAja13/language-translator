@@ -46,7 +46,29 @@
         textarea:focus {
             outline: none;
         }
-  
+        @media screen and (max-width:1200px) {
+            body{
+                height: 100%;
+                box-sizing: border-box;                
+            }
+            .phone{
+                display: flex;
+                flex-direction: column;
+                padding-top: 500px;
+                padding-bottom: 10px;
+                align-items: center;
+                max-height: 100%;
+                overflow-y: auto;
+            }
+            .second{
+                padding: 10px 10px;
+            }
+            .final{
+                margin: 0px 10px;
+                max-width: 100%;
+                margin-left: 5rem;
+            }
+        }
     </style>
 </head>
 
@@ -59,9 +81,9 @@
       </nav>
 
 
-    <div class="container flex justify-around h-screen rounded my-2 " style="height: 80vh; box-shadow: 0 2px 5px rgba(0,0,0,0.6);">
-        <div class="first flex flex-col justify-around items-center">
-            <div class="dropdown">
+    <div class="container flex justify-around h-screen rounded my-2 phone" style="height: 80vh; box-shadow: 0 2px 5px rgba(0,0,0,0.6);">
+        <div class="first flex flex-col justify-around items-center second">
+            <div class="dropdown second">
                 <a class="btn btn-secondary dropdown-toggle check" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Translate from
@@ -187,13 +209,13 @@
                     <li><a class="dropdown-item" value="af">Afrikaans</a></li>
                 </ul>
             </div>
-            <textarea placeholder="Enter the text" id="textFrom" cols="50" class="p-4 rounded-xl" rows="15"></textarea>
+            <textarea placeholder="Enter the text" id="textFrom" cols="50" class="p-4 rounded-xl final" rows="15"></textarea>
         </div>
         <div class="flex items-center">
-            <button  class="btn btn-success" id="tra" style="height: auto;">Translate</button>
+            <button  class="btn btn-success second" id="tra" style="height: auto;">Translate</button>
         </div>
-        <div class="second flex flex-col justify-around items-center">
-            <div class="dropdown">
+        <div class="flex flex-col justify-around items-center">
+            <div class="dropdown second">
                 <a class="btn btn-secondary dropdown-toggle checkSrc" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Translate to
@@ -323,7 +345,7 @@
                     <li><a class="dropdown-item checkDest" value="af">Afrikaans</a></li>
                 </ul>
             </div>
-            <textarea placeholder="Translated text will appear here..." id="destText" cols="50" class="p-4 rounded-xl" rows="15"
+            <textarea placeholder="Translated text will appear here..." id="destText" cols="50" class="p-4 rounded-xl second final" rows="15"
                 readonly></textarea>
         </div>
     </div>
