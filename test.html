@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Translator</title>
+    <link rel = "icon" href = 
+"https://marketplace.magento.com/media/catalog/product/3/7/373d_languagetranslator_3.png" 
+        type = "image/x-icon">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+            background-color: #DDDDDD;
+        }
+        /* .mob{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            min-height: 100vh;
+        } */
+        textarea{
+            resize: none;
+        }
+        textarea:focus {
+            outline: none;
+        }
+        @media screen and (max-width:1200px) {
+            body{
+                height: 100%;
+                box-sizing: border-box;                
+            }
+            .phone{
+                display: flex;
+                flex-direction: column;
+                padding-top: 500px;
+                padding-bottom: 10px;
+                align-items: center;
+                max-height: 100%;
+                overflow-y: auto;
+            }
+            .second{
+                padding: 10px 10px;
+            }
+            .final{
+                margin: 0px 10px;
+                max-width: 100%;
+                margin-left: 5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="display: flex; justify-content: center;" style="background-color: #001f3f;">
+        <div>
+          <a class="navbar-brand " href="#">Text Converter</a>
+        </div>
+      </nav>
+
+
+    <div class="container flex justify-around h-screen rounded my-2 phone" style="height: 80vh; box-shadow: 0 2px 5px rgba(0,0,0,0.6);">
+        <div class="first flex flex-col justify-around items-center second">
+            <div class="dropdown second">
+                <a class="btn btn-secondary dropdown-toggle check" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Translate from
+                </a>
+                <ul class="dropdown-menu" style="height: 500px; overflow-y: scroll; cursor: pointer;"
+                    aria-labelledby="dropdownMenuLink">
+
+                    <li><a class="dropdown-item" value="sq">Albanian - shqip</a></li>
+                    <li><a class="dropdown-item" value="am">Amharic - አማርኛ</a></li>
+                    <li><a class="dropdown-item" value="ar">Arabic - العربية</a></li>
+                    <li><a class="dropdown-item" value="an">Aragonese - aragonés</a></li>
+                    <li><a class="dropdown-item" value="hy">Armenian - հայերեն</a></li>
+                    <li><a class="dropdown-item" value="ast">Asturian - asturianu</a></li>
+                    <li><a class="dropdown-item" value="az">Azerbaijani - azərbaycan dili</a></li>
+                    <li><a class="dropdown-item" value="eu">Basque - euskara</a></li>
+                    <li><a class="dropdown-item" value="be">Belarusian - беларуская</a></li>
+                    <li><a class="dropdown-item" value="bn">Bengali - বাংলা</a></li>
+                    <li><a class="dropdown-item" value="bs">Bosnian - bosanski</a></li>
+                    <li><a class="dropdown-item" value="br">Breton - brezhoneg</a></li>
+                    <li><a class="dropdown-item" value="bg">Bulgarian - български</a></li>
+                    <li><a class="dropdown-item" value="ca">Catalan - català</a></li>
+                    <li><a class="dropdown-item" value="ckb">Central Kurdish - کوردی (دەستنوسی عەرەبی)</a></li>
+                    <li><a class="dropdown-item" value="zh">Chinese - 中文</a></li>
+                    <li><a class="dropdown-item" value="co">Corsican</a></li>
+                    <li><a class="dropdown-item" value="hr">Croatian - hrvatski</a></li>
+                    <li><a class="dropdown-item" value="cs">Czech - čeština</a></li>
+                    <li><a class="dropdown-item" value="da">Danish - dansk</a></li>
+                    <li><a class="dropdown-item" value="nl">Dutch - Nederlands</a></li>
+                    <li><a class="dropdown-item" value="en">English</a></li>
+                    <li><a class="dropdown-item" value="eo">Esperanto - esperanto</a></li>
+                    <li><a class="dropdown-item" value="et">Estonian - eesti</a></li>
+                    <li><a class="dropdown-item" value="fo">Faroese - føroyskt</a></li>
+                    <li><a class="dropdown-item" value="fil">Filipino</a></li>
+                    <li><a class="dropdown-item" value="fi">Finnish - suomi</a></li>
+                    <li><a class="dropdown-item" value="fr">French - français</a></li>
+                    <li><a class="dropdown-item" value="gl">Galician - galego</a></li>
+                    <li><a class="dropdown-item" value="ka">Georgian - ქართული</a></li>
+                    <li><a class="dropdown-item" value="de">German - Deutsch</a></li>
+                    <li><a class="dropdown-item" value="el">Greek - Ελληνικά</a></li>
+                    <li><a class="dropdown-item" value="gn">Guarani</a></li>
+                    <li><a class="dropdown-item" value="gu">Gujarati - ગુજરાતી</a></li>
+                    <li><a class="dropdown-item" value="ha">Hausa</a></li>
+                    <li><a class="dropdown-item" value="haw">Hawaiian - ʻŌlelo Hawaiʻi</a></li>
+                    <li><a class="dropdown-item" value="he">Hebrew - עברית</a></li>
+                    <li><a class="dropdown-item" value="hi">Hindi - हिन्दी</a></li>
+                    <li><a class="dropdown-item" value="hu">Hungarian - magyar</a></li>
+                    <li><a class="dropdown-item" value="is">Icelandic - íslenska</a></li>
+                    <li><a class="dropdown-item" value="id">Indonesian - Indonesia</a></li>
+                    <li><a class="dropdown-item" value="ia">Interlingua</a></li>
+                    <li><a class="dropdown-item" value="ga">Irish - Gaeilge</a></li>
+                    <li><a class="dropdown-item" value="it">Italian - italiano</a></li>
+                    <li><a class="dropdown-item" value="ja">Japanese - 日本語</a></li>
+                    <li><a class="dropdown-item" value="kn">Kannada - ಕನ್ನಡ</a></li>
+                    <li><a class="dropdown-item" value="kk">Kazakh - қазақ тілі</a></li>
+                    <li><a class="dropdown-item" value="km">Khmer - ខ្មែរ</a></li>
+                    <li><a class="dropdown-item" value="ko">Korean - 한국어</a></li>
+                    <li><a class="dropdown-item" value="ku">Kurdish - Kurdî</a></li>
+                    <li><a class="dropdown-item" value="ky">Kyrgyz - кыргызча</a></li>
+                    <li><a class="dropdown-item" value="lo">Lao - ລາວ</a></li>
+                    <li><a class="dropdown-item" value="la">Latin</a></li>
+                    <li><a class="dropdown-item" value="lv">Latvian - latviešu</a></li>
+                    <li><a class="dropdown-item" value="ln">Lingala - lingála</a></li>
+                    <li><a class="dropdown-item" value="lt">Lithuanian - lietuvių</a></li>
+                    <li><a class="dropdown-item" value="mk">Macedonian - македонски</a></li>
+                    <li><a class="dropdown-item" value="ms">Malay - Bahasa Melayu</a></li>
+                    <li><a class="dropdown-item" value="ml">Malayalam - മലയാളം</a></li>
+                    <li><a class="dropdown-item" value="mt">Maltese - Malti</a></li>
+                    <li><a class="dropdown-item" value="mr">Marathi - मराठी</a></li>
+                    <li><a class="dropdown-item" value="mn">Mongolian - монгол</a></li>
+                    <li><a class="dropdown-item" value="ne">Nepali - नेपाली</a></li>
+                    <li><a class="dropdown-item" value="no">Norwegian - norsk</a></li>
+                    <li><a class="dropdown-item" value="nb">Norwegian Bokmål - norsk bokmål</a></li>
+                    <li><a class="dropdown-item" value="nn">Norwegian Nynorsk - nynorsk</a></li>
+                    <li><a class="dropdown-item" value="oc">Occitan</a></li>
+                    <li><a class="dropdown-item" value="or">Oriya - ଓଡ଼ିଆ</a></li>
+                    <li><a class="dropdown-item" value="om">Oromo - Oromoo</a></li>
+                    <li><a class="dropdown-item" value="ps">Pashto - پښتو</a></li>
+                    <li><a class="dropdown-item" value="fa">Persian - فارسی</a></li>
+                    <li><a class="dropdown-item" value="pl">Polish - polski</a></li>
+                    <li><a class="dropdown-item" value="pt">Portuguese - português</a></li>
+                    <li><a class="dropdown-item" value="pa">Punjabi - ਪੰਜਾਬੀ</a></li>
+                    <li><a class="dropdown-item" value="qu">Quechua</a></li>
+                    <li><a class="dropdown-item" value="ro">Romanian - română</a></li>
+                    <li><a class="dropdown-item" value="mo">Romanian (Moldova) - română (Moldova)</a></li>
+                    <li><a class="dropdown-item" value="rm">Romansh - rumantsch</a></li>
+                    <li><a class="dropdown-item" value="ru">Russian - русский</a></li>
+                    <li><a class="dropdown-item" value="gd">Scottish Gaelic</a></li>
+                    <li><a class="dropdown-item" value="sr">Serbian - српски</a></li>
+                    <li><a class="dropdown-item" value="sh">Serbo-Croatian - Srpskohrvatski</a></li>
+                    <li><a class="dropdown-item" value="sn">Shona - chiShona</a></li>
+                    <li><a class="dropdown-item" value="sd">Sindhi</a></li>
+                    <li><a class="dropdown-item" value="si">Sinhala - සිංහල</a></li>
+                    <li><a class="dropdown-item" value="sk">Slovak - slovenčina</a></li>
+                    <li><a class="dropdown-item" value="sl">Slovenian - slovenščina</a></li>
+                    <li><a class="dropdown-item" value="so">Somali - Soomaali</a></li>
+                    <li><a class="dropdown-item" value="st">Southern Sotho</a></li>
+                    <li><a class="dropdown-item" value="es">Spanish - español</a></li>
+                    <li><a class="dropdown-item" value="su">Sundanese</a></li>
+                    <li><a class="dropdown-item" value="sw">Swahili - Kiswahili</a></li>
+                    <li><a class="dropdown-item" value="sv">Swedish - svenska</a></li>
+                    <li><a class="dropdown-item" value="tg">Tajik - тоҷикӣ</a></li>
+                    <li><a class="dropdown-item" value="ta">Tamil - தமிழ்</a></li>
+                    <li><a class="dropdown-item" value="tt">Tatar</a></li>
+                    <li><a class="dropdown-item" value="te">Telugu - తెలుగు</a></li>
+                    <li><a class="dropdown-item" value="th">Thai - ไทย</a></li>
+                    <li><a class="dropdown-item" value="ti">Tigrinya - ትግርኛ</a></li>
+                    <li><a class="dropdown-item" value="to">Tongan - lea fakatonga</a></li>
+                    <li><a class="dropdown-item" value="tr">Turkish - Türkçe</a></li>
+                    <li><a class="dropdown-item" value="tk">Turkmen</a></li>
+                    <li><a class="dropdown-item" value="tw">Twi</a></li>
+                    <li><a class="dropdown-item" value="uk">Ukrainian - українська</a></li>
+                    <li><a class="dropdown-item" value="ur">Urdu - اردو</a></li>
+                    <li><a class="dropdown-item" value="ug">Uyghur</a></li>
+                    <li><a class="dropdown-item" value="uz">Uzbek - o‘zbek</a></li>
+                    <li><a class="dropdown-item" value="vi">Vietnamese - Tiếng Việt</a></li>
+                    <li><a class="dropdown-item" value="wa">Walloon - wa</a></li>
+                    <li><a class="dropdown-item" value="cy">Welsh - Cymraeg</a></li>
+                    <li><a class="dropdown-item" value="fy">Western Frisian</a></li>
+                    <li><a class="dropdown-item" value="xh">Xhosa</a></li>
+                    <li><a class="dropdown-item" value="yi">Yiddish</a></li>
+                    <li><a class="dropdown-item" value="yo">Yoruba - Èdè Yorùbá</a></li>
+                    <li><a class="dropdown-item" value="zu">Zulu - isiZulu</a></li>
+                    <li><a class="dropdown-item" value="af">Afrikaans</a></li>
+                </ul>
+            </div>
+            <textarea placeholder="Enter the text" id="textFrom" cols="50" class="p-4 rounded-xl final" rows="15"></textarea>
+        </div>
+        <div class="flex items-center">
+            <button  class="btn btn-success second" id="tra" style="height: auto;">Translate</button>
+        </div>
+        <div class="flex flex-col justify-around items-center">
+            <div class="dropdown second">
+                <a class="btn btn-secondary dropdown-toggle checkSrc" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Translate to
+                </a>
+                <ul class="dropdown-menu" style="cursor: pointer; height: 500px; overflow-y: scroll;"
+                    aria-labelledby="dropdownMenuLink">
+
+                    <li><a class="dropdown-item checkDest" value="sq">Albanian - shqip</a></li>
+                    <li><a class="dropdown-item checkDest" value="am">Amharic - አማርኛ</a></li>
+                    <li><a class="dropdown-item checkDest" value="ar">Arabic - العربية</a></li>
+                    <li><a class="dropdown-item checkDest" value="an">Aragonese - aragonés</a></li>
+                    <li><a class="dropdown-item checkDest" value="hy">Armenian - հայերեն</a></li>
+                    <li><a class="dropdown-item checkDest" value="ast">Asturian - asturianu</a></li>
+                    <li><a class="dropdown-item checkDest" value="az">Azerbaijani - azərbaycan dili</a></li>
+                    <li><a class="dropdown-item checkDest" value="eu">Basque - euskara</a></li>
+                    <li><a class="dropdown-item checkDest" value="be">Belarusian - беларуская</a></li>
+                    <li><a class="dropdown-item checkDest" value="bn">Bengali - বাংলা</a></li>
+                    <li><a class="dropdown-item checkDest" value="bs">Bosnian - bosanski</a></li>
+                    <li><a class="dropdown-item checkDest" value="br">Breton - brezhoneg</a></li>
+                    <li><a class="dropdown-item checkDest" value="bg">Bulgarian - български</a></li>
+                    <li><a class="dropdown-item checkDest" value="ca">Catalan - català</a></li>
+                    <li><a class="dropdown-item checkDest" value="ckb">Central Kurdish - کوردی (دەستنوسی عەرەبی)</a>
+                    </li>
+                    <li><a class="dropdown-item checkDest" value="zh">Chinese - 中文</a></li>
+                    <li><a class="dropdown-item checkDest" value="zh-HK">Chinese (Hong Kong) - 中文（香港）</a></li>
+                    <li><a class="dropdown-item checkDest" value="zh-CN">Chinese (Simplified) - 中文（简体）</a></li>
+                    <li><a class="dropdown-item checkDest" value="zh-TW">Chinese (Traditional) - 中文（繁體）</a></li>
+                    <li><a class="dropdown-item checkDest" value="co">Corsican</a></li>
+                    <li><a class="dropdown-item checkDest" value="hr">Croatian - hrvatski</a></li>
+                    <li><a class="dropdown-item checkDest" value="cs">Czech - čeština</a></li>
+                    <li><a class="dropdown-item checkDest" value="da">Danish - dansk</a></li>
+                    <li><a class="dropdown-item checkDest" value="nl">Dutch - Nederlands</a></li>
+                    <li><a class="dropdown-item checkDest" value="en">English</a></li>
+                    <li><a class="dropdown-item checkDest" value="eo">Esperanto - esperanto</a></li>
+                    <li><a class="dropdown-item checkDest" value="et">Estonian - eesti</a></li>
+                    <li><a class="dropdown-item checkDest" value="fo">Faroese - føroyskt</a></li>
+                    <li><a class="dropdown-item checkDest" value="fil">Filipino</a></li>
+                    <li><a class="dropdown-item checkDest" value="fi">Finnish - suomi</a></li>
+                    <li><a class="dropdown-item checkDest" value="fr">French - français</a></li>
+                    <li><a class="dropdown-item checkDest" value="gl">Galician - galego</a></li>
+                    <li><a class="dropdown-item checkDest" value="ka">Georgian - ქართული</a></li>
+                    <li><a class="dropdown-item checkDest" value="de">German - Deutsch</a></li>
+                    <li><a class="dropdown-item checkDest" value="el">Greek - Ελληνικά</a></li>
+                    <li><a class="dropdown-item checkDest" value="gn">Guarani</a></li>
+                    <li><a class="dropdown-item checkDest" value="gu">Gujarati - ગુજરાતી</a></li>
+                    <li><a class="dropdown-item checkDest" value="ha">Hausa</a></li>
+                    <li><a class="dropdown-item checkDest" value="haw">Hawaiian - ʻŌlelo Hawaiʻi</a></li>
+                    <li><a class="dropdown-item checkDest" value="he">Hebrew - עברית</a></li>
+                    <li><a class="dropdown-item checkDest" value="hi">Hindi - हिन्दी</a></li>
+                    <li><a class="dropdown-item checkDest" value="hu">Hungarian - magyar</a></li>
+                    <li><a class="dropdown-item checkDest" value="is">Icelandic - íslenska</a></li>
+                    <li><a class="dropdown-item checkDest" value="id">Indonesian - Indonesia</a></li>
+                    <li><a class="dropdown-item checkDest" value="ia">Interlingua</a></li>
+                    <li><a class="dropdown-item checkDest" value="ga">Irish - Gaeilge</a></li>
+                    <li><a class="dropdown-item checkDest" value="it">Italian - italiano</a></li>
+                    <li><a class="dropdown-item checkDest" value="ja">Japanese - 日本語</a></li>
+                    <li><a class="dropdown-item checkDest" value="kn">Kannada - ಕನ್ನಡ</a></li>
+                    <li><a class="dropdown-item checkDest" value="kk">Kazakh - қазақ тілі</a></li>
+                    <li><a class="dropdown-item checkDest" value="km">Khmer - ខ្មែរ</a></li>
+                    <li><a class="dropdown-item checkDest" value="ko">Korean - 한국어</a></li>
+                    <li><a class="dropdown-item checkDest" value="ku">Kurdish - Kurdî</a></li>
+                    <li><a class="dropdown-item checkDest" value="ky">Kyrgyz - кыргызча</a></li>
+                    <li><a class="dropdown-item checkDest" value="lo">Lao - ລາວ</a></li>
+                    <li><a class="dropdown-item checkDest" value="la">Latin</a></li>
+                    <li><a class="dropdown-item checkDest" value="lv">Latvian - latviešu</a></li>
+                    <li><a class="dropdown-item checkDest" value="ln">Lingala - lingála</a></li>
+                    <li><a class="dropdown-item checkDest" value="lt">Lithuanian - lietuvių</a></li>
+                    <li><a class="dropdown-item checkDest" value="mk">Macedonian - македонски</a></li>
+                    <li><a class="dropdown-item checkDest" value="ms">Malay - Bahasa Melayu</a></li>
+                    <li><a class="dropdown-item checkDest" value="ml">Malayalam - മലയാളം</a></li>
+                    <li><a class="dropdown-item checkDest" value="mt">Maltese - Malti</a></li>
+                    <li><a class="dropdown-item checkDest" value="mr">Marathi - मराठी</a></li>
+                    <li><a class="dropdown-item checkDest" value="mn">Mongolian - монгол</a></li>
+                    <li><a class="dropdown-item checkDest" value="ne">Nepali - नेपाली</a></li>
+                    <li><a class="dropdown-item checkDest" value="no">Norwegian - norsk</a></li>
+                    <li><a class="dropdown-item checkDest" value="nb">Norwegian Bokmål - norsk bokmål</a></li>
+                    <li><a class="dropdown-item checkDest" value="nn">Norwegian Nynorsk - nynorsk</a></li>
+                    <li><a class="dropdown-item checkDest" value="oc">Occitan</a></li>
+                    <li><a class="dropdown-item checkDest" value="or">Oriya - ଓଡ଼ିଆ</a></li>
+                    <li><a class="dropdown-item checkDest" value="om">Oromo - Oromoo</a></li>
+                    <li><a class="dropdown-item checkDest" value="ps">Pashto - پښتو</a></li>
+                    <li><a class="dropdown-item checkDest" value="fa">Persian - فارسی</a></li>
+                    <li><a class="dropdown-item checkDest" value="pl">Polish - polski</a></li>
+                    <li><a class="dropdown-item checkDest" value="pt">Portuguese - português</a></li>
+                    <li><a class="dropdown-item checkDest" value="pa">Punjabi - ਪੰਜਾਬੀ</a></li>
+                    <li><a class="dropdown-item checkDest" value="qu">Quechua</a></li>
+                    <li><a class="dropdown-item checkDest" value="ro">Romanian - română</a></li>
+                    <li><a class="dropdown-item checkDest" value="mo">Romanian (Moldova) - română (Moldova)</a></li>
+                    <li><a class="dropdown-item checkDest" value="rm">Romansh - rumantsch</a></li>
+                    <li><a class="dropdown-item checkDest" value="ru">Russian - русский</a></li>
+                    <li><a class="dropdown-item checkDest" value="gd">Scottish Gaelic</a></li>
+                    <li><a class="dropdown-item checkDest" value="sr">Serbian - српски</a></li>
+                    <li><a class="dropdown-item checkDest" value="sh">Serbo-Croatian - Srpskohrvatski</a></li>
+                    <li><a class="dropdown-item checkDest" value="sn">Shona - chiShona</a></li>
+                    <li><a class="dropdown-item checkDest" value="sd">Sindhi</a></li>
+                    <li><a class="dropdown-item checkDest" value="si">Sinhala - සිංහල</a></li>
+                    <li><a class="dropdown-item checkDest" value="sk">Slovak - slovenčina</a></li>
+                    <li><a class="dropdown-item checkDest" value="sl">Slovenian - slovenščina</a></li>
+                    <li><a class="dropdown-item checkDest" value="so">Somali - Soomaali</a></li>
+                    <li><a class="dropdown-item checkDest" value="st">Southern Sotho</a></li>
+                    <li><a class="dropdown-item checkDest" value="es">Spanish - español</a></li>
+                    <li><a class="dropdown-item checkDest" value="su">Sundanese</a></li>
+                    <li><a class="dropdown-item checkDest" value="sw">Swahili - Kiswahili</a></li>
+                    <li><a class="dropdown-item checkDest" value="sv">Swedish - svenska</a></li>
+                    <li><a class="dropdown-item checkDest" value="tg">Tajik - тоҷикӣ</a></li>
+                    <li><a class="dropdown-item checkDest" value="ta">Tamil - தமிழ்</a></li>
+                    <li><a class="dropdown-item checkDest" value="tt">Tatar</a></li>
+                    <li><a class="dropdown-item checkDest" value="te">Telugu - తెలుగు</a></li>
+                    <li><a class="dropdown-item checkDest" value="th">Thai - ไทย</a></li>
+                    <li><a class="dropdown-item checkDest" value="ti">Tigrinya - ትግርኛ</a></li>
+                    <li><a class="dropdown-item checkDest" value="to">Tongan - lea fakatonga</a></li>
+                    <li><a class="dropdown-item checkDest" value="tr">Turkish - Türkçe</a></li>
+                    <li><a class="dropdown-item checkDest" value="tk">Turkmen</a></li>
+                    <li><a class="dropdown-item checkDest" value="tw">Twi</a></li>
+                    <li><a class="dropdown-item checkDest" value="uk">Ukrainian - українська</a></li>
+                    <li><a class="dropdown-item checkDest" value="ur">Urdu - اردو</a></li>
+                    <li><a class="dropdown-item checkDest" value="ug">Uyghur</a></li>
+                    <li><a class="dropdown-item checkDest" value="uz">Uzbek - o‘zbek</a></li>
+                    <li><a class="dropdown-item checkDest" value="vi">Vietnamese - Tiếng Việt</a></li>
+                    <li><a class="dropdown-item checkDest" value="wa">Walloon - wa</a></li>
+                    <li><a class="dropdown-item checkDest" value="cy">Welsh - Cymraeg</a></li>
+                    <li><a class="dropdown-item checkDest" value="fy">Western Frisian</a></li>
+                    <li><a class="dropdown-item checkDest" value="xh">Xhosa</a></li>
+                    <li><a class="dropdown-item checkDest" value="yi">Yiddish</a></li>
+                    <li><a class="dropdown-item checkDest" value="yo">Yoruba - Èdè Yorùbá</a></li>
+                    <li><a class="dropdown-item checkDest" value="zu">Zulu - isiZulu</a></li>
+                    <li><a class="dropdown-item checkDest" value="af">Afrikaans</a></li>
+                </ul>
+            </div>
+            <textarea placeholder="Translated text will appear here..." id="destText" cols="50" class="p-4 rounded-xl second final" rows="15"
+                readonly></textarea>
+        </div>
+    </div>
+    <div class="text-center w-full p-2 text-white" style="position: absolute; bottom: 0; background-color: #001f3f;">Made with ❤ by Zubair and Khaja shaik</div>
+</body>
+<script src="test.js"></script>
+</html>
+
